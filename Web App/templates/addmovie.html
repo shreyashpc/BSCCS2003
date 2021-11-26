@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add to the DataBase</title>
+
+</head>
+<body>
+    <h1>Enter the details in the below form:</h1>
+    <form method="post" action = "/addmovie">
+        <label>Enter Name: </label>
+        <input type="text" name="Name" required>
+        <label>Enter Release Year:</label>
+        <input type="text" name="year" required>
+        <label>Enter the Director Name: </label>
+        <input type="text" name="director" required>
+    <label>Select Actor</label>
+        <select name="actor_name">
+            {%if all | length == 0%}
+
+
+            <option value="NA">No Actors Available</option>
+            {% else %}
+            {%for one in all%}
+            <option value="{{one.actor_id}}">{{one.actor_email}}</option>
+            {%endfor%}
+            {%endif%}
+
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
